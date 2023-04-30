@@ -13,7 +13,8 @@ fn main() {
         // ランダムな値を取得する
         let (x, y) = rand::random();
         create_entity(&mut id, &mut pos_ary,);
-        set_data(&id, &mut pos_ary, (x, y));
+        let t = id -1;
+        set_data(&t, &mut pos_ary, (x, y));
     }
 
 
@@ -37,5 +38,5 @@ fn create_entity_pos(id: &mut usize, ary: &mut Vec<(i32, i32)>, data: (i32, i32)
 
 // 配列の指定されたidの要素に、指定された値を代入する
 fn set_data (id: &usize, ary: &mut Vec<(i32, i32)>, data: (i32, i32)) {
-    ary[*id -1] = data;
+    ary[*id] = data;
 }
