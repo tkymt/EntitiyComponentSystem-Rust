@@ -33,7 +33,7 @@ fn main() {
 // idを増やして、配列に要素を追加する
 fn create_entity(id: &mut usize, ary: &mut Vec<Position>){
     *id += 1;
-    ary.push((0, 0));
+    ary.push(Position { x: 0, y: 0 });
 }
 
 // idを増やして、配列に指定された値の要素を追加する
