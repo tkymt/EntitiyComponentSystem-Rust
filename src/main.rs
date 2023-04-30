@@ -20,7 +20,7 @@ fn main() {
         let (x, y) = rand::random();
         create_entity(&mut id, &mut pos_ary,);
         let t = id -1;
-        set_data(&t, &mut pos_ary, (x, y));
+        set_data(&t, &mut pos_ary,Position{ x, y });
     }
 
 
