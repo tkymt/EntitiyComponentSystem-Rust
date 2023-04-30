@@ -11,7 +11,8 @@ fn main() {
     let mut id = 0;
 
     // 配列をやめて、ベクタで宣言する
-    let mut pos_ary: Vec<(i32, i32)> = vec![];
+    // Position構造体のベクタ
+    let mut pos_ary: Vec<Position> = vec![];
 
     // 効果を確かめるために、10回 create_entity を呼び出す
     for i in 0..10 {
