@@ -1,5 +1,6 @@
 use rand;
 
+#[derive(Debug)]
 struct Position {
     x: i32,
     y: i32,
