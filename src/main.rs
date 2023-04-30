@@ -31,18 +31,18 @@ fn main() {
 }
 
 // idを増やして、配列に要素を追加する
-fn create_entity(id: &mut usize, ary: &mut Vec<(i32, i32)>){
+fn create_entity(id: &mut usize, ary: &mut Vec<Position>){
     *id += 1;
     ary.push((0, 0));
 }
 
 // idを増やして、配列に指定された値の要素を追加する
-fn create_entity_pos(id: &mut usize, ary: &mut Vec<(i32, i32)>, data: (i32, i32)) {
+fn create_entity_pos(id: &mut usize, ary: &mut Vec<Position>, data: Position) {
     *id += 1;
     ary.push(data);
 }
 
 // 配列の指定されたidの要素に、指定された値を代入する
-fn set_data (id: &usize, ary: &mut Vec<(i32, i32)>, data: (i32, i32)) {
+fn set_data (id: &usize, ary: &mut Vec<Position>, data: Position) {
     ary[*id] = data;
 }
