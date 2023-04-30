@@ -1,5 +1,10 @@
 use rand;
 
+struct Position {
+    x: i32,
+    y: i32,
+}
+
 fn main() {
     
     // idは配列の要素数を表す
