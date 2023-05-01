@@ -28,15 +28,15 @@ fn main() {
     for i in 0..10 {
         // ランダムな値を取得する
         let (x, y) = rand::random();
-        create_entity(&mut id, &mut pos_ary,);
-        let t = id -1;
-        set_data(&t, &mut pos_ary,Position{ x, y });
+        generic_create_entity(&mut id, &mut pos_ary, Position { x, y });
+        generic_create_entity(&mut id, &mut vel_ary, Velocity { x, y });
     }
 
 
-
+    // ベクタの要素を出力する
     for i in 0..id  {
-        println!("{}: {:?}", i, pos_ary[i])
+        println!("{}: {:?}", i, pos_ary[i]);
+        println!("{}: {:?}", i, vel_ary[i]);
     }
 }
 
