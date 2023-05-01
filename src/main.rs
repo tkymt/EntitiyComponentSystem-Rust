@@ -70,3 +70,14 @@ fn create_entity_vel(id: &mut usize, ary: &mut Vec<Velocity>, data: Velocity) {
 fn set_data_vel(id: &usize, ary: &mut Vec<Velocity>, data: Velocity) {
     ary[*id] = data;
 }
+
+// ジェネリックなデータ型を引数に取る create_entity 関数
+fn generic_create_entity <T> (id: &mut usize, v: &mut Vec<T>, data: T) {
+    v.push(data);
+    *id += 1;
+}
+
+// ジェネリックなデータ型を引数に取る set_data 関数
+fn generic_set_data <T> (id: &usize, v: &mut Vec<T>, data: T) {
+    v[*id] = data;
+}
