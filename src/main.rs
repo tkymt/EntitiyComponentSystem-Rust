@@ -56,3 +56,17 @@ fn create_entity_pos(id: &mut usize, ary: &mut Vec<Position>, data: Position) {
 fn set_data (id: &usize, ary: &mut Vec<Position>, data: Position) {
     ary[*id] = data;
 }
+
+fn create_entity_vel_zero_init(id: &mut usize, ary: &mut Vec<Velocity>) {
+    *id += 1;
+    ary.push(Velocity { x: 0, y: 0 });
+}
+
+fn create_entity_vel(id: &mut usize, ary: &mut Vec<Velocity>, data: Velocity) {
+    *id += 1;
+    ary.push(data);
+}
+
+fn set_data_vel(id: &usize, ary: &mut Vec<Velocity>, data: Velocity) {
+    ary[*id] = data;
+}
