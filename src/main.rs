@@ -6,6 +6,12 @@ struct Position {
     y: i32,
 }
 
+#[derive(Debug)]
+struct Velocity {
+    x: i32,
+    y: i32,
+}
+
 fn main() {
     
     // idは配列の要素数を表す
@@ -13,7 +19,7 @@ fn main() {
 
     // 配列をやめて、ベクタで宣言する
     // Position構造体のベクタ
-    let mut pos_ary: Vec<Position> = vec![];
+    let mut pos_ary: Vec<Position> = vec![];  
 
     // 効果を確かめるために、10回 create_entity を呼び出す
     for i in 0..10 {
