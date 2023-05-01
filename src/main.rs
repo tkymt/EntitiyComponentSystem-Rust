@@ -21,6 +21,9 @@ fn main() {
     // Position構造体のベクタ
     let mut pos_ary: Vec<Position> = vec![];  
 
+    // Velocity構造体のベクタ
+    let mut vel_ary: Vec<Velocity> = vec![];
+    
     // 効果を確かめるために、10回 create_entity を呼び出す
     for i in 0..10 {
         // ランダムな値を取得する
