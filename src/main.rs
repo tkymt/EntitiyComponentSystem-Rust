@@ -25,14 +25,19 @@ fn main() {
     let mut vel_ary: Vec<Velocity> = vec![];
     
     // 効果を確かめるために、10回 create_entity を呼び出す
-    // ひとつのエンティティにつきコンポーネントを２つ追加する
+    // ひとつのエンティティにつきコンポーネントを１つ追加する
     for i in 0..10 {
         // ランダムな値を取得する
         let (x, y) = rand::random();
         create_entity(&mut id);
         add_component(&mut pos_ary, Position { x, y });
-        add_component(&mut vel_ary, Velocity { x, y });
-     }
+    }
+
+    for i in 0..10 {
+        let (x, y) = rand::random();
+        create_entity(&mut id);
+        add_component(&mut vel_ary, Velocity{ x, y });
+    }
 
 
     // ベクタの要素を出力する
