@@ -40,10 +40,12 @@ fn main() {
     }
 }
 
+/// ベクタにコンポーネントをを追加するのをやめて、id に +1 するだけにした
 fn create_entity <T> (id: &mut usize) {
     *id += 1;
 }
 
+// ベクタにコンポーネントを追加する
 fn add_component <T> (v: &mut Vec<T>, data: T) {
     v.push(data)
 }
