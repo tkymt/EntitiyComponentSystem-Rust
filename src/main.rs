@@ -3,6 +3,11 @@ use std::collections::HashMap;
 use rand;
 
 #[derive(Debug)]
+struct Entity {
+    id: u32,
+}
+
+#[derive(Debug)]
 struct Position {
     x: i32,
     y: i32,
