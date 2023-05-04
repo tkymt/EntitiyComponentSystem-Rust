@@ -77,8 +77,3 @@ fn create_entity (id: &mut u32) -> Entity {
 fn add_component <T> (entity: &Entity, v: &mut HashMap<u32, T>, data: T) {
     v.insert(entity.id, data);
 }
-
-// ジェネリックなデータ型を引数に取る set_data 関数
-fn generic_set_data <T> (id: &usize, v: &mut Vec<T>, data: T) {
-    v[*id] = data;
-}
