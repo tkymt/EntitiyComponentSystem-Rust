@@ -30,7 +30,7 @@ fn main() {
         let (x, y) = rand::random();
         generic_create_entity(&mut id, &mut pos_ary, Position { x, y });
         generic_create_entity(&mut id, &mut vel_ary, Velocity { x, y });
-    }
+     }
 
 
     // ベクタの要素を出力する
@@ -44,6 +44,10 @@ fn main() {
 fn generic_create_entity <T> (id: &mut usize, v: &mut Vec<T>, data: T) {
     v.push(data);
     *id += 1;
+}
+
+fn add_component <T> (v: &mut Vec<T>, data: T) {
+    v.push(data)
 }
 
 // ジェネリックなデータ型を引数に取る set_data 関数
