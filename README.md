@@ -1,2 +1,2 @@
 # entitiy_compornent_system_rust
-EntitiComponentSystemをRust言語で作ってみた
+EntityComponentSystemをRust言語で作ってみた
