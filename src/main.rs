@@ -34,21 +34,21 @@ fn main() {
     
     // 効果を確かめるために、2回づつ create_entity を呼び出す
     // Positionコンポーネントのみ
-    for i in 0..2 {
+    for _ in 0..2 {
         let (x, y) = rand::random();
         let entity = create_entity(&mut entity_count);
         add_component(&entity, &mut pos_ary, Position { x, y });
     }
 
     // Velocityコンポーネントのみ
-    for i in 0..2 {
+    for _ in 0..2 {
         let (x, y) = rand::random();
         let entity = create_entity(&mut entity_count);
         add_component(&entity, &mut vel_ary, Velocity{ x, y });
     }
 
     // PositionとVelocityの両方
-    for i in 0..2 {
+    for _ in 0..2 {
         let (x ,y) = rand::random();
         let entity = create_entity(&mut entity_count);
         add_component(&entity, &mut pos_ary, Position { x, y });
