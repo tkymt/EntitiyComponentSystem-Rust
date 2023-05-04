@@ -1,5 +1,5 @@
 [package]
-name = "EntitiyCompornentSystem-Rust"
+name = "entitiy_compornent_system_rust"
 version = "0.1.0"
 edition = "2021"
 
