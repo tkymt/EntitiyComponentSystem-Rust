@@ -36,23 +36,23 @@ fn main() {
     // Positionコンポーネントのみ
     for i in 0..2 {
         let (x, y) = rand::random();
-        let key = create_entity(&mut entity_count);
-        add_component(&key, &mut pos_ary, Position { x, y });
+        let entity = create_entity(&mut entity_count);
+        add_component(&entity, &mut pos_ary, Position { x, y });
     }
 
     // Velocityコンポーネントのみ
     for i in 0..2 {
         let (x, y) = rand::random();
-        let key = create_entity(&mut entity_count);
-        add_component(&key, &mut vel_ary, Velocity{ x, y });
+        let entity = create_entity(&mut entity_count);
+        add_component(&entity, &mut vel_ary, Velocity{ x, y });
     }
 
     // PositionとVelocityの両方
     for i in 0..2 {
         let (x ,y) = rand::random();
-        let key = create_entity(&mut entity_count);
-        add_component(&key, &mut pos_ary, Position { x, y });
-        add_component(&key, &mut vel_ary, Velocity { x, y })
+        let entity = create_entity(&mut entity_count);
+        add_component(&entity, &mut pos_ary, Position { x, y });
+        add_component(&entity, &mut vel_ary, Velocity { x, y })
     }
 
 
@@ -66,16 +66,16 @@ fn main() {
     }
 }
 
-// id に +1 して作成したエンティティを返す
-fn create_entity (id: &mut u32) -> u32 {
-    let key = *id;
+// 現在のentity_countをidにしたエンティティを返す
+fn create_entity (id: &mut u32) -> Entity {
+    let entity = Entity { id: *id };
     *id += 1;
-    key
+    entity
 }
 
 // ハッシュマップにコンポーネントを追加する
-fn add_component <T> (id: &u32, v: &mut HashMap<u32, T>, data: T) {
-    v.insert(*id, data);
+fn add_component <T> (entity: &Entity, v: &mut HashMap<u32, T>, data: T) {
+    v.insert(entity.id, data);
 }
 
 // ジェネリックなデータ型を引数に取る set_data 関数
