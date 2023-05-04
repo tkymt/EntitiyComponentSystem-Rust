@@ -16,8 +16,9 @@ struct Velocity {
 
 fn main() {
     
-    // idは配列の要素数を表す
-    let mut id = 0;
+    // 現時点で作られたエンティティの数を表す。
+    // それと、次に作るエンティティのidも表す。
+    let mut entity_count = 0;
 
     // ベクタをやめて、ハッシュマップで宣言する
     // Position構造体のハッシュマップ
@@ -30,28 +31,28 @@ fn main() {
     // Positionコンポーネントのみ
     for i in 0..2 {
         let (x, y) = rand::random();
-        let key = create_entity(&mut id);
+        let key = create_entity(&mut entity_count);
         add_component(&key, &mut pos_ary, Position { x, y });
     }
 
     // Velocityコンポーネントのみ
     for i in 0..2 {
         let (x, y) = rand::random();
-        let key = create_entity(&mut id);
+        let key = create_entity(&mut entity_count);
         add_component(&key, &mut vel_ary, Velocity{ x, y });
     }
 
     // PositionとVelocityの両方
     for i in 0..2 {
         let (x ,y) = rand::random();
-        let key = create_entity(&mut id);
+        let key = create_entity(&mut entity_count);
         add_component(&key, &mut pos_ary, Position { x, y });
         add_component(&key, &mut vel_ary, Velocity { x, y })
     }
 
 
     // 各要素の値を出力する
-    for i in 0..id  {
+    for i in 0..entity_count  {
         let pos = pos_ary.get(&i);
         let vel = vel_ary.get(&i);
         
