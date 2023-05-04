@@ -40,9 +40,7 @@ fn main() {
     }
 }
 
-// ジェネリックなデータ型を引数に取る create_entity 関数
-fn generic_create_entity <T> (id: &mut usize, v: &mut Vec<T>, data: T) {
-    v.push(data);
+fn create_entity <T> (id: &mut usize) {
     *id += 1;
 }
 
