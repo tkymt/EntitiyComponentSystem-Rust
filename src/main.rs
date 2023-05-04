@@ -43,7 +43,7 @@ fn main() {
 }
 
 // ベクタにコンポーネントをを追加するのをやめて、id に +1 するだけにした
-fn create_entity <T> (id: &mut usize) {
+fn create_entity (id: &mut usize) {
     *id += 1;
 }
 
