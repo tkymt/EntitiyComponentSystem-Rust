@@ -77,3 +77,7 @@ fn create_entity (id: &mut u32) -> Entity {
 fn add_component <T> (entity: &Entity, v: &mut HashMap<u32, T>, data: T) {
     v.insert(entity.id, data);
 }
+
+fn remove_component <T> (entity: &Entity, compornents: &mut HashMap<u32, T>) {
+    compornents.remove(&entity.id);
+}
