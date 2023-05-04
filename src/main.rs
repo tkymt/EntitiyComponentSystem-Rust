@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use rand;
 
 #[derive(Debug)]
@@ -17,44 +19,57 @@ fn main() {
     // idは配列の要素数を表す
     let mut id = 0;
 
-    // 配列をやめて、ベクタで宣言する
-    // Position構造体のベクタ
-    let mut pos_ary: Vec<Position> = vec![];  
+    // ベクタをやめて、ハッシュマップで宣言する
+    // Position構造体のハッシュマップ
+    let mut pos_ary: HashMap<u32, Position> = HashMap::new();  
 
-    // Velocity構造体のベクタ
-    let mut vel_ary: Vec<Velocity> = vec![];
+    // Velocity構造体のハッシュマップ
+    let mut vel_ary: HashMap<u32, Velocity> = HashMap::new();
     
-    // 効果を確かめるために、10回 create_entity を呼び出す
-    // ひとつのエンティティにつきコンポーネントを１つ追加する
-    for i in 0..10 {
-        // ランダムな値を取得する
+    // 効果を確かめるために、2回づつ create_entity を呼び出す
+    // Positionコンポーネントのみ
+    for i in 0..2 {
         let (x, y) = rand::random();
-        create_entity(&mut id);
-        add_component(&mut pos_ary, Position { x, y });
+        let key = create_entity(&mut id);
+        add_component(&key, &mut pos_ary, Position { x, y });
     }
 
-    for i in 0..10 {
+    // Velocityコンポーネントのみ
+    for i in 0..2 {
         let (x, y) = rand::random();
-        create_entity(&mut id);
-        add_component(&mut vel_ary, Velocity{ x, y });
+        let key = create_entity(&mut id);
+        add_component(&key, &mut vel_ary, Velocity{ x, y });
+    }
+
+    // PositionとVelocityの両方
+    for i in 0..2 {
+        let (x ,y) = rand::random();
+        let key = create_entity(&mut id);
+        add_component(&key, &mut pos_ary, Position { x, y });
+        add_component(&key, &mut vel_ary, Velocity { x, y })
     }
 
 
-    // ベクタの要素を出力する
+    // 各要素の値を出力する
     for i in 0..id  {
-        println!("{}: {:?}", i, pos_ary[i]);
-        println!("{}: {:?}", i, vel_ary[i]);
+        let pos = pos_ary.get(&i);
+        let vel = vel_ary.get(&i);
+        
+        println!("{}: {:?}", i, pos);
+        println!("{}: {:?}", i, vel);
     }
 }
 
-// ベクタにコンポーネントをを追加するのをやめて、id に +1 するだけにした
-fn create_entity (id: &mut usize) {
+// id に +1 して作成したエンティティを返す
+fn create_entity (id: &mut u32) -> u32 {
+    let key = *id;
     *id += 1;
+    key
 }
 
-// ベクタにコンポーネントを追加する
-fn add_component <T> (v: &mut Vec<T>, data: T) {
-    v.push(data)
+// ハッシュマップにコンポーネントを追加する
+fn add_component <T> (id: &u32, v: &mut HashMap<u32, T>, data: T) {
+    v.insert(*id, data);
 }
 
 // ジェネリックなデータ型を引数に取る set_data 関数
