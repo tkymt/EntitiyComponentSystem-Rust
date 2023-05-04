@@ -81,3 +81,8 @@ fn add_component <T> (entity: &Entity, v: &mut HashMap<u32, T>, data: T) {
 fn remove_component <T> (entity: &Entity, compornents: &mut HashMap<u32, T>) {
     compornents.remove(&entity.id);
 }
+
+fn destroy_entity <T, U> (entity: &Entity, compornents1: &mut HashMap<u32, T>, compornents2: &mut HashMap<u32, U>) {
+    compornents1.remove(&entity.id);
+    compornents2.remove(&entity.id);
+}
