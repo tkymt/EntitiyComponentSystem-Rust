@@ -26,6 +26,9 @@ fn main() {
     let mut entity_count = 0;
 
     // ベクタをやめて、ハッシュマップで宣言する
+
+    let conponent_store: HashMap<&str, HashMap<u32, Position>> = HashMap::new();
+
     // Position構造体のハッシュマップ
     let mut pos_ary: HashMap<u32, Position> = HashMap::new();  
 
